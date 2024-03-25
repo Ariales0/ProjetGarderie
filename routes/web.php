@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\GarderieController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [GarderieController::class, 'index'])->name('accueil');
+Route::get('/Garderies/{id}', [GarderieController::class, 'index'])->name('garderies.liste');
+//Route::get('/garderies/{id}/edit', [GarderieController::class, 'formulaireModifierGarderie'])->name('garderies.modification');
+//Route::post('/garderies/ajouter', [GarderieController::class, 'ajouter'])->name('garderies.ajouter');
+//Route::put('/garderies/{id}/update', [GarderieController::class, 'update'])->name('garderies.modifier');
+//Route::delete('garderies/{id}/delete', [GarderieController::class, 'delete'])->name('garderies.supprimer');
+//Route::delete('/garderies/clear', [GarderieController::class, 'vider'])->name('garderies.vider');
