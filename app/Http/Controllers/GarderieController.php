@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Garderie;
 use Illuminate\Http\Request;
 
 class GarderieController extends Controller
 {
     public function index()
     {
-        $listeGarderies = Garderie::orderby('title')->get();
+        $listeGarderies = Garderie::orderby('nom')->get();
 
         return view('garderie', compact('listeGarderies'));
     }
