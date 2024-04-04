@@ -14,8 +14,8 @@ use App\Http\Controllers\GarderieController;
 |
 */
 
-Route::get('/', [GarderieController::class, 'index'])->name('accueil');
-Route::get('/Garderies/{id}', [GarderieController::class, 'index'])->name('garderies.liste');
+Route::get('/', [GarderieController::class, 'index'])->name('garderies');
+Route::get('/Garderies', [GarderieController::class, 'index'])->name('garderies.liste');
 //Route::get('/garderies/{id}/edit', [GarderieController::class, 'formulaireModifierGarderie'])->name('garderies.modification');
 //Route::post('/garderies/ajouter', [GarderieController::class, 'ajouter'])->name('garderies.ajouter');
 //Route::put('/garderies/{id}/update', [GarderieController::class, 'update'])->name('garderies.modifier');

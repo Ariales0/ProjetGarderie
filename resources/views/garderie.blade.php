@@ -16,7 +16,7 @@
                 <td><h3> {{ $uneGarderie->nom }}</h3></td>
                 <td><h3> {{ $uneGarderie->adresse }}</h3></td>
                 <td><h3> {{ $uneGarderie->ville }}</h3></td>
-                <td><h3> {{ $uneGarderie->province }}</h3></td>
+                <td><h3> {{ $uneGarderie->province->description }}</h3></td>
                 <td><h3> {{ $uneGarderie->telephone }}</h3></td>
                 
             </tr>

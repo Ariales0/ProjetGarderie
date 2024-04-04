@@ -3,7 +3,7 @@
         <div >
             <ul >
                 <li >
-                    <a  href="{{ route('accueil') }}">Accueil</a>
+                    <a  href="{{ route('garderies') }}">Garderies</a>
                 </li>
             </ul>
         </div>
