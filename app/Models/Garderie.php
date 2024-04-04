@@ -16,7 +16,7 @@ class Garderie extends Model
 
     public function province()
     {
-        return $this->hasMany(Province::class);
+        return $this->belongsTo(Province::class);
     }
 
 }
