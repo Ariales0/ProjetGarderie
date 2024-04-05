@@ -33,7 +33,9 @@ class GarderieController extends Controller
 
     public function formulaireModifierGarderie($id)
     {
-        
+        $garderie = Garderie::find($id);
+        $listeProvinces = Province::orderby('Id')->get();
+        return view('garderieModifier', compact('garderie','listeProvinces'));
     }
 
     public function update(Request $request, $id)

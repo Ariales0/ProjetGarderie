@@ -46,19 +46,62 @@
     <form method="POST" action="/garderies/ajouter">
         @csrf
 
-        Nom : <input type="text" name="nom" maxlength="100"required> <br>
-        Adresse : <input type="text" name="adresse" maxlength="200" required><br>
-        Ville : <input type="text" name="ville" maxlength="100" required><br>
-        Province :<select name="province">
+        <table>
+            <tr>
+              <td>
+                <label>Nom : </label>
+              </td>
+              <td>
+                <input type="text" name="nom" maxlength="100" required> 
+              </td>
+            </tr>
+        
+            <tr>
+              <td>
+                <label>Adresse : </label>
+              </td>
+              <td>
+                <input type="text" name="adresse" maxlength="200" required>
+              </td>
+            </tr> 
+        
+            <tr>
+              <td>
+                <label>Ville : </label>
+              </td>
+              <td>
+                <input type="text" name="ville" maxlength="100" required>
+              </td>
+            </tr>
+            
+            <tr>
+              <td>
+                <label>Province : </label>
+              </td>
+              <td>
+                <select name="province">
+                  @foreach($listeProvinces as $laProvince)
+                    <option value="{{ $laProvince->Id }}">{{ $laProvince->description }}</option>
+                  @endforeach
+                </select>
+              </td>
+            </tr>
+        
+            <tr>
+              <td>
+                <label>Téléphone : </label>
+              </td>
+              <td>
+                <input type="text" name="telephone" maxlength="12" required>
+              </td>
+            </tr>
+        
+            <tr>
+              <td >
+                <button type="submit">Créer</button>
+              </td>
+            </tr>
+          </table>
 
-        @foreach($listeProvinces as $laProvince)
-        {
-            <option value="{{ $laProvince->Id }}">{{ $laProvince->description }}</option>
-        }
-        @endforeach
-
-        </select><br>
-        Téléphone : <input type="text" name="telephone" maxlength="12" required><br>
-        <button type="submit">Créer</button>
       </form>
 @endsection
