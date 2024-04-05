@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 
 use App\Models\Garderie;
+use App\Models\Province;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -12,13 +13,22 @@ class GarderieController extends Controller
     public function index()
     {
         $listeGarderies = Garderie::orderby('nom')->get();
+        $listeProvinces = Province::orderby('Id')->get();
 
-        return view('garderie', compact('listeGarderies'));
+        return view('garderie', compact('listeGarderies','listeProvinces'));
     }
 
     public function ajouter(Request $request)
     {
-        
+        Garderie::create([
+            'nom' => $request->nom,
+            'adresse' => $request->adresse,
+            'ville' => $request->ville,
+            'id_province' => $request->province,
+            'telephone' => $request->telephone
+
+        ]);
+        return redirect('/');
     }
 
     public function formulaireModifierGarderie($id)

@@ -9,11 +9,13 @@
                 <th>Ville</th>
                 <th>Province</th>
                 <th>Téléphone</th>
-                <th><form method="POST" action="/garderies/clear">
-                    @csrf
-                    @method('DELETE')
-                    <button type="submit" onclick="return confirm('Voulez-vous vraiment supprimer toutes les garderies ?')">Vider</button>
-                </form></th>
+                <th>
+                    <form method="POST" action="/garderies/clear">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" onclick="return confirm('Voulez-vous vraiment supprimer toutes les garderies ?')">Vider</button>
+                    </form>
+                </th>
             </tr>
             @foreach($listeGarderies as $uneGarderie)
             <tr>
@@ -41,4 +43,22 @@
     @else
         <span>Aucune garderie dans la base de données.</span>
     @endif
+    <form method="POST" action="/garderies/ajouter">
+        @csrf
+
+        Nom : <input type="text" name="nom" maxlength="100"required> <br>
+        Adresse : <input type="text" name="adresse" maxlength="200" required><br>
+        Ville : <input type="text" name="ville" maxlength="100" required><br>
+        Province :<select name="province">
+
+        @foreach($listeProvinces as $laProvince)
+        {
+            <option value="{{ $laProvince->Id }}">{{ $laProvince->description }}</option>
+        }
+        @endforeach
+
+        </select><br>
+        Téléphone : <input type="text" name="telephone" maxlength="12" required><br>
+        <button type="submit">Créer</button>
+      </form>
 @endsection
