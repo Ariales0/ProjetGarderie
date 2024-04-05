@@ -4,10 +4,10 @@
 			"path": "."
 		},
 		{
-			"path": "../../../Users/quent/Downloads/Posts"
+			"path": "../Posts"
 		},
 		{
-			"path": "../Posts"
+			"path": "../gestionClinique"
 		}
 	]
 }
