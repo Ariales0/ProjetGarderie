@@ -9,7 +9,11 @@
                 <th>Ville</th>
                 <th>Province</th>
                 <th>Téléphone</th>
-                <th><input value="Vider" type="button" /></th>
+                <th><form method="POST" action="/garderies/clear">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" onclick="return confirm('Voulez-vous vraiment supprimer toutes les garderies ?')">Vider</button>
+                </form></th>
             </tr>
             @foreach($listeGarderies as $uneGarderie)
             <tr>
@@ -18,13 +22,13 @@
                 <td><h3> {{ $uneGarderie->ville }}</h3></td>
                 <td><h3> {{ $uneGarderie->province->description }}</h3></td>
                 <td><h3> {{ $uneGarderie->telephone }}</h3></td>
-                <td><form method="GET" action="/garderies/{{ $uneGarderie->id }}/edit">
+                <td><form method="GET" action="/garderies/{{ $uneGarderie->Id }}/edit">
                     @csrf
                     <button type="submit">Modifier</button>
                 </form>
             </td>
             <td>
-                <form method="POST" action="/garderies/{{ $uneGarderie->id }}/delete">
+                <form method="POST" action="/garderies/{{ $uneGarderie->Id }}/delete">
                     @csrf
                     @method('DELETE')
                     <button type="submit" onclick="return confirm('Voulez-vous vraiment supprimer cette garderie ?')">Supprimer</button>

@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+
 use App\Models\Garderie;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class GarderieController extends Controller
 {
@@ -38,14 +40,20 @@ class GarderieController extends Controller
 
     public function delete($id)
     {
-        $garderie = Garderie::find($id);
-        $garderie->delete();
-        return redirect('/');
+        $garderie=Garderie::findOrFail($id);
+        //dd($garderie);
+        try {
+            $garderie->delete();
+        } catch (\Exception $e) {
+            dd($e->getMessage()); // Affiche l'erreur
+        }
+        //DB::table('garderies')->where('Id', $id)->delete();
+        return redirect('/Garderies');
     }
 
     public function vider()
     {
-        $garderies = Post::find($id);
+        Garderie::truncate();
         return redirect('/');
     }
 }

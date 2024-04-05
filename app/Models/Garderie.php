@@ -4,15 +4,17 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Province;
 
 class Garderie extends Model
 {
+
+    protected $primaryKey = 'Id'; // Définit le nom de la clé primaire
+    
     use HasFactory;
 
     public $timestamps = false;
 
-    protected $fillable = ['nom', 'adresse',"ville","province","telephone"];
+    protected $fillable = ['nom', 'adresse',"ville","telephone","id_province"];
 
     public function province()
     {

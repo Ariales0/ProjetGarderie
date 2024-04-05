@@ -3,7 +3,7 @@
         <div >
             <ul >
                 <li >
-                    <a  href="{{ route('garderies') }}">Garderies</a>
+                    <a  href="{{ route('garderies.liste') }}">Garderies</a>
                 </li>
             </ul>
         </div>
